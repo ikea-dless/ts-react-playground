@@ -12,10 +12,9 @@ export const UseState = () => {
         <li><a href="https://ja.reactjs.org/docs/hooks-state.html">doc</a></li>
       </ul>
       <textarea
-        value={text}
-        onChange={(e) => { setText(e.target.value) }}
+        // 1. このtextareaの状態をtext stateを使って管理してみましょう
       />
-      文字数: 1. ここに表示してみましょう
+      文字数: 2. ここに表示してみましょう
     </div>
   )
 }
