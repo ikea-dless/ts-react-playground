@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 import { Basic } from "./components/Basic"
 import { Fragment } from "./components/Fragment"
 import { List } from "./components/List"
@@ -11,8 +11,8 @@ import { UseReducer } from "./components/UseReducer"
 import { Hocs } from "./components/Hocs"
 import { RenderProps } from "./components/RenderProps"
 
-export const Template = () => (
-  <div>
+export const Template: FC = () => (
+  <>
     <h1>React + TS実践</h1>
     <Basic
       name="太郎"
@@ -39,5 +39,5 @@ export const Template = () => (
     <Hocs />
     <RenderProps />
     <div style={{paddingBottom: 100}}></div>
-  </div>
+  </>
 )

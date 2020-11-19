@@ -1,43 +1,15 @@
-import React, { Reducer, useReducer } from "react"
+import React from "react"
+import { ProfileState, useProfile } from "../hooks/useProfile"
 
-type State = {
-  name: string
-  age: number | null
-}
-
-type StandardAction<T, P> = {
-  type: T
-  payload: P
-}
-
-type Action =
-  | StandardAction<"changeName", { name: string }>
-  | StandardAction<"changeAge", { age: number | null }>
-
-const initialState: State = {
+const initialState: ProfileState = {
   name: "",
-  age: null
-}
-
-const reducer: Reducer<State, Action>  = (state, action) => {
-  switch (action.type) {
-    case "changeName": {
-      const { payload } = action
-      if (state.name === payload.name) return state
-      return { ...state, name: payload.name }
-    }
-    case "changeAge": {
-      const { payload } = action
-      if (state.age === payload.age) return state
-      return { ...state, age: payload.age }
-    }
-    default: return state
-  }
+  age: null,
+  hasLicense: false
 }
 
 export const UseReducer = () => {
   // これもhooksなので、もちろんreducer関数含めて外出しできる
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useProfile(initialState)
 
   return (
     <>
@@ -73,6 +45,10 @@ export const UseReducer = () => {
           type="checkbox"
           // 1. hasLicenseというboolを扱うstateをuseReducerに生やしてこのチェックボックスを操作できるようにしてみましょう
           // 2. 余裕のある人はhooksを外に切り出してみましょう
+          checked={state.hasLicense}
+          onChange={() => {
+            dispatch({ type: "changeHasLicense", payload: { hasLicense: !state.hasLicense } })
+          }}
         />
       </div>
     </>

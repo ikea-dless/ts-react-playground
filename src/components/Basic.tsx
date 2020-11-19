@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FC } from "react"
 
 // 1. 型を付けてみましょう
 // 下のFunctionComponentという関数の型を付けてみましょう
@@ -15,7 +15,12 @@ import React from "react"
 // <Basic name={obj.name} />
 // <Basic { ...obj } />
 
-export const Basic = ({ name, age }) => (
+type Props = {
+  name: string
+  age: number
+}
+
+export const Basic: FC<Props> = ({ name, age }) => (
   <div>
     <h3>基本</h3>
     <dl>

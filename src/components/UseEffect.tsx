@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, FC } from "react"
 
 // https://ja.reactjs.org/docs/hooks-effect.html
 
-export const UseEffect = () => {
+export const UseEffect: FC = () => {
   const [text, setText] = useState("")
   const [count, setCount] = useState(0)
   
   useEffect(() => {
     // 1. テキストエリアを編集したときだけ、ログを出したい
     console.log(text)
-  })
+  }, [text])
 
   return (
     <div>
@@ -36,6 +36,8 @@ const Mount = () => {
   useEffect(() => {
     // 1. コンポーネントマウント時に1回だけ mounted! を吐き出したい
     // 2. コンポーネントアンマウント時に1回だけ unmounted! を吐き出したい
+    console.log("mounted!")
+    return () => console.log("unmounted!")
   })
 
   return <p>マウントされてます</p>
