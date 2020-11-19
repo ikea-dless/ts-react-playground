@@ -1,0 +1,21 @@
+{
+  "name": "ts-react-playground",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "parcel-bundler": "^1.12.4",
+    "typescript": "3.9.3"
+  },
+  "scripts": {
+    "serve": "parcel serve src/index.html --host 0.0.0.0 --hmr-port 39563"
+  },
+  "author": "",
+  "license": "MIT"
+}
