@@ -13,8 +13,10 @@ export const UseState = () => {
       </ul>
       <textarea
         // 1. このtextareaの状態をtext stateを使って管理してみましょう
+        value={text}
+        onChange={(e) => { setText(e.target.value) } }
       />
-      文字数: 2. ここに表示してみましょう
+      文字数: { text.length }
     </div>
   )
 }
