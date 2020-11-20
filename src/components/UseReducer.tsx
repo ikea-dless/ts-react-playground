@@ -3,6 +3,7 @@ import React, { Reducer, useReducer } from "react"
 type State = {
   name: string
   age: number | null
+  hasLicense: boolean
 }
 
 type StandardAction<T, P> = {
@@ -13,23 +14,32 @@ type StandardAction<T, P> = {
 type Action =
   | StandardAction<"changeName", { name: string }>
   | StandardAction<"changeAge", { age: number | null }>
+  | StandardAction<"toggleHasLicense", {}>
+  | StandardAction<"reset", {}>
 
 const initialState: State = {
   name: "",
-  age: null
+  age: null,
+  hasLicense: false
 }
 
 const reducer: Reducer<State, Action>  = (state, action) => {
   switch (action.type) {
     case "changeName": {
       const { payload } = action
-      if (state.name === payload.name) return state
+      // if (state.name === payload.name) return state
       return { ...state, name: payload.name }
     }
     case "changeAge": {
       const { payload } = action
-      if (state.age === payload.age) return state
+      // if (state.age === payload.age) return state
       return { ...state, age: payload.age }
+    }
+    case "toggleHasLicense": {
+      return { ...state, hasLicense: !state.hasLicense }
+    }
+    case "reset": {
+      return initialState
     }
     default: return state
   }
@@ -69,8 +79,11 @@ export const UseReducer = () => {
             dispatch({ type: "changeAge", payload: { age } })
           }}
         />
+        <button onClick={() => { dispatch({ type:"reset", payload: {} })}}>reset</button>
         <input
           type="checkbox"
+          checked={state.hasLicense}
+          onChange={() => { dispatch({ type: "toggleHasLicense", payload: {} })}}
           // 1. hasLicenseというboolを扱うstateをuseReducerに生やしてこのチェックボックスを操作できるようにしてみましょう
           // 2. 余裕のある人はhooksを外に切り出してみましょう
         />

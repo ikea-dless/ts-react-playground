@@ -1,6 +1,6 @@
-import React, { useState } from "react"
+import React, { FC, useState } from "react"
 
-export const UseState = () => {
+export const UseState: FC = () => {
   const initialState: string = ""
   // useStateはstate自体とstateを変更する関数をタプルで返す
   const [text, setText] = useState(initialState)
@@ -13,8 +13,10 @@ export const UseState = () => {
       </ul>
       <textarea
         // 1. このtextareaの状態をtext stateを使って管理してみましょう
+        value={text}
+        onChange={(e) => { setText(e.target.value) }}
       />
-      文字数: 2. ここに表示してみましょう
+      文字数: { text.length }
     </div>
   )
 }

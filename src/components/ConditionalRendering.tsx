@@ -18,12 +18,12 @@ export const ConditionalRendering = () => {
       { /* ここに式がかけるので、分岐もかける */ }
       { isShow && <div>表示されます</div> }
       { /* ということは、下の結果は？ */ }
-      { /* false */ }
-      { /* 0 */ }
-      { /* null */ }
-      { /* undefined */ }
-      { /* [] */ }
-      { /* true */ }
+      { false }
+      { 0 }
+      { null }
+      { undefined }
+      { [] }
+      { true }
     </>
   )
 }

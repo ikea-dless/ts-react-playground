@@ -1,8 +1,9 @@
-import React from "react"
+import React, { FC } from "react"
 
 // 1. childrenとして渡されているコンポーネントを表示できるようにしましょう
+// 2. 型をつけましょう
 
-export const Children = () => (
+export const Children: FC = ({ children }) => (
   <div>
     <h3>Children</h3>
     <a href="https://ja.reactjs.org/docs/composition-vs-inheritance.html">コンポジション vs 継承</a>
@@ -12,7 +13,7 @@ export const Children = () => (
         flexDirection: "row"
       }}
     >
-      <p>ここにchildrenを表示したい</p>
+      { children }
     </div>
   </div>
 )
