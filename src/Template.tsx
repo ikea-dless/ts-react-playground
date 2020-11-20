@@ -4,6 +4,7 @@ import { Fragment } from "./components/Fragment"
 import { List } from "./components/List"
 import { Children } from "./components/Children"
 import { UseState } from "./components/UseState"
+import { ConditionalRendering } from "./components/ConditionalRendering"
 import { UseRef } from "./components/UseRef"
 import { UseEffect } from "./components/UseEffect"
 import { CustomHook } from "./components/CustomHook"
@@ -31,6 +32,7 @@ export const Template = () => (
       <div style={{marginRight: "10px"}}>表示する</div>
     </Children>
     <UseState />
+    <ConditionalRendering />
     <UseRef />
     <UseEffect />
     <CustomHook />
