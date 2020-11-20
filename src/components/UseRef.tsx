@@ -1,6 +1,6 @@
-import React, { useRef } from "react"
+import React, { FC, useRef } from "react"
 
-export const UseRef = () => {
+export const UseRef: FC = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const focusInput = () => { inputRef?.current?.focus() }
   const isDisplay = useRef(false)
